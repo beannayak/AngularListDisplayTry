@@ -24,10 +24,10 @@
 	</head>
 	<body ng-controller="MyController">
 		<div>{{ hello + " " + world }}</div>
-		<div ng-repeat="song in songsData">
-			<song-info song="song"></song-info>
+		<div style="width: 500px; margin: auto;">
+			<div ng-repeat="song in songsData">
+				<song-info song="song"></song-info>
+			</div>
 		</div>
-		
-		<date-picker></date-picker>
 	</body>
 </html>
