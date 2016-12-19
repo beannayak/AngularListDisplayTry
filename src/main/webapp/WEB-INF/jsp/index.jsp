@@ -5,43 +5,41 @@
 <c:set var="req" value="${pageContext.request}" />
 <c:set var="url">${req.requestURL}</c:set>
 <c:set var="uri" value="${req.requestURI}" />
+<c:set var="baseUrl" value="${fn:substring(url, 0, fn:length(url) - fn:length(uri))}${req.contextPath}" />
 
 <!doctype html>
 <html lang="en" >
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 		<title>HomePage</title>
-		<base href="${fn:substring(url, 0, fn:length(url) - fn:length(uri))}${req.contextPath}/">
+		<base href="${baseUrl}/">
+		<link rel="stylesheet" type="text/css" href="resources/css/songsInfo.css">
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script>
 		<script src="resources/js/angular.js"></script>
 		<script src="resources/js/angular.min.js"></script>
 		<script src="resources/js/angular-route.js"></script>
-		<script src="resources/js/appmodule.js"></script>
 		
+		<!-- Main Application -->
 		<script src="resources/js/modules/songs/app/app.js"></script>
 		
-		<!--conrollers  -->
+		<!-- controllers -->
 		<script src="resources/js/modules/songs/controllers/MyController.js"></script>
 		
-		<!--services  -->
+		<!-- services -->
 		<script src="resources/js/modules/songs/services/urlService.js"></script>
+		<script src="resources/js/modules/songs/services/urlStringService.js"></script>
+		
+		<!-- directives -->
+		<script src="resources/js/modules/songs/directives/songInfo.js"></script>
 		
 		<script type="text/javascript">
 			var getContextUrl = function () {
-				return "${fn:substring(url, 0, fn:length(url) - fn:length(uri))}${req.contextPath}";
+				return "${baseUrl}";
 			};
 		</script>
 	</head>
-	<body>
-	<div data-ng-app="myApp">
-	<div>{{ hello + " " + world }}</div>
-		<div style="width: 500px; margin: auto;">
-			<div ng-repeat="song in songsData">			
-				<song-info song="song"></song-info>
-			</div>
-		</div>
-	</div>
-		
+	<body data-ng-app="myApp">
+		<div data-ng-view></div>
 	</body>
 </html>
