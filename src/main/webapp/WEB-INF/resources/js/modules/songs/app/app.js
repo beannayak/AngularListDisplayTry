@@ -12,16 +12,18 @@
 	//the suffix is only needed for .config, everything else can just use
 	//urlStringService. Note how .$get() is used while acting as provider 
 	//Check file services/urlStringService for the service
-	routeProviderConfig.$inject = ['$routeProvider', 'urlStringServiceProvider'];
-	function routeProviderConfig($routeProvider, urlStringService){
+	routeProviderConfig.$inject = ['$routeProvider', '$locationProvider', 'urlStringServiceProvider'];
+	function routeProviderConfig($routeProvider, $locationProvider, urlStringService){
 	
 		$routeProvider.when('/', {
-			templateUrl: urlStringService.$get().getUrl('rootPartialLocation'),
+			templateUrl: urlStringService.$get().getUrl('rootLocation_partial'),
 			controller:'MyController'
 		})
 		.otherwise({
 			redirectTo:'/'
 		});
+		
+		$locationProvider.html5Mode(true);
 	};
 		
 	httpProviderConfig.$inject = ['$httpProvider'];

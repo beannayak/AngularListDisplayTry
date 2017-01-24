@@ -11,9 +11,9 @@
 		var contextLocation = getContextUrl();
 		var urlMap = {
 				'serviceUrl': '/rest/message',
-				'songInfoTemplateUrl': '/resources/template/SongInfoTemplate.html',
+				'songInfoUrl_directive': '/resources/template/SongInfoTemplate.html',
 				'albumArtLocation': '/resources/images/[arg].jpg',
-				'rootPartialLocation': '/resources/partials/rootPartial.html'
+				'rootLocation_partial': '/resources/partials/rootPartial.html'
 			};
 		retObject.getUrl = function() {
 			var stringToReturn = urlMap[arguments[0]];

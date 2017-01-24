@@ -8,7 +8,6 @@
 	.controller('MyController', MyController);
 	
 	MyController.$inject = ['$scope', 'urlService'];
-	
 	function MyController($scope, urlService){
 		$scope.hello = "Hello";
 		$scope.world = "World!";

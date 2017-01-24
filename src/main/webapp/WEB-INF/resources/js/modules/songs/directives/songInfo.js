@@ -13,7 +13,7 @@
 		var returnObject = {};
 		
 		returnObject.restrict = 'AE';
-		returnObject.templateUrl = urlStringService.getUrl('songInfoTemplateUrl');
+		returnObject.templateUrl = urlStringService.getUrl('songInfoUrl_directive');
 		returnObject.scope = {song: "="};
 		returnObject.link = function (scope, elem, attr) {
 			scope.getImagePath = function(albumArt) {
