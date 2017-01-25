@@ -6,21 +6,21 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class JustAnEntity {
+public class Signature {
 	@Id
 	@GeneratedValue (strategy = GenerationType.AUTO)
 	private long id;
 	
 	private String name;
 	
-	private int age;
+	private String signature;
 
-	public JustAnEntity(){
+	public Signature() {
 	}
 	
-	public JustAnEntity(String name, int age) {
+	public Signature(String name, String signature) {
 		this.name = name;
-		this.age = age;
+		this.signature = signature;
 	}
 	
 	public long getId() {
@@ -39,11 +39,11 @@ public class JustAnEntity {
 		this.name = name;
 	}
 
-	public int getAge() {
-		return age;
+	public String getSignature() {
+		return signature;
 	}
 
-	public void setAge(int age) {
-		this.age = age;
+	public void setSignature(String signature) {
+		this.signature = signature;
 	}
 }
